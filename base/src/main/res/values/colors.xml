@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="transparent">#00000000</color>
+    <color name="color_disabled">#BCBEC0</color>
+    <color name="color_subtext">#939598</color>
+    <color name="color_paragraph_text">#6D6E71</color>
+    <color name="color_title_text">#414042</color>
+    <color name="tc_1_ev">#de000000</color>
+    <color name="view_sep">#979797</color>
+</resources>

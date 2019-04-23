@@ -11,8 +11,6 @@ object ApiHelper {
 
     init {
 
-        FuelManager.instance.basePath = "http://148.72.210.86:8080/KiddoRestApi/"
-
         FuelManager.instance.addRequestInterceptor {
             LogRequestAsCurlInterceptor(it)
         }
