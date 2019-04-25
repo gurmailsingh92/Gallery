@@ -1,3 +1,12 @@
 <resources>
     <string name="app_name">Gallery</string>
+    <string name="grid_2">Grid with 2 images</string>
+    <string name="grid_3">Grid with 3 images</string>
+    <string name="grid_4">Grid with 4 images</string>
+    <string name="no_internet_connectivity">Looks like there is no internet connectivity to fetch results!!</string>
+    <string name="hint">Search for Images here</string>
+    <string name="speech_prompt">Try saying something&#8230;</string>
+    <string name="looking_for_something">Search for Images here...</string>
+    <string name="get_more_results">To get more results, please switch to a reliable network</string>
+
 </resources>

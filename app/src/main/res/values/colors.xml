@@ -3,4 +3,22 @@
     <color name="colorPrimary">#008577</color>
     <color name="colorPrimaryDark">#00574B</color>
     <color name="colorAccent">#D81B60</color>
+    <color name="white">#ffffff</color>
+
+    <color name="color_toolbars">#212121</color>
+    <color name="color_viewport">#191919</color>
+    <color name="color_cards_background">#333333</color>
+    <color name="color_unselected">#666666</color>
+    <color name="color_subtext">#9e9e9e</color>
+    <color name="color_text_light">#eeeeee</color>
+    <color name="color_text_light_disabled">#40eeeeee</color>
+    <color name="color_white">#ffffff</color>
+    <color name="color_accent_red">#d8272c</color>
+    <color name="color_warning">#e88304</color>
+    <color name="color_title_text">#eeeeee</color>
+    <color name="color_spacer">#8e24aa</color>
+    <color name="color_adindicator">#fcd511</color>
+    <color name="color_green">#388e3c</color>
+    <color name="color_subtitle_text">#939598</color>
+    <color name="color_grey">#dddddd</color>
 </resources>
