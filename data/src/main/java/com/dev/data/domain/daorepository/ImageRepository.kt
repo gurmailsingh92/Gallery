@@ -2,7 +2,7 @@ package com.dev.data.domain.daorepository
 
 import androidx.annotation.WorkerThread
 import com.dev.data.domain.AppSdk
-import com.dev.data.domain.entity.ImageEntity
+import com.dev.data.domain.entity.ImageModelEntity
 
 
 class ImageRepository {
@@ -10,13 +10,21 @@ class ImageRepository {
     companion object {
 
         @WorkerThread
-        suspend fun insertImages(list: List<ImageEntity>) {
-            AppSdk.getInstance().imageDatabase.imageDao().insert(list)
+        suspend fun insertImages(list: List<ImageModelEntity>) {
+            AppSdk.getInstance().getDatabase().imageDao().insert(list)
         }
 
         @WorkerThread
-        suspend fun getImages(): List<ImageEntity>? {
-            return AppSdk.getInstance().imageDatabase.imageDao().getImages()
+        suspend fun getImages(
+            searchKey: String,
+            itemsToFetch: Int,
+            offset: Int
+        ): List<ImageModelEntity>? {
+            return AppSdk.getInstance().getDatabase().imageDao().getImages(
+                searchKey,
+                itemsToFetch,
+                offset
+            )
         }
 
 
