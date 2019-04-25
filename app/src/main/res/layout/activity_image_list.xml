@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.dev.widgets.MyRelativeLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+    <androidx.appcompat.widget.Toolbar
+            android:layout_width="match_parent"
+            app:contentInsetEnd="0dp"
+            app:contentInsetStart="0dp"
+            android:elevation="10dp"
+            android:theme="@style/AppTheme.PopupOverlay"
+            android:translationZ="10dp"
+            android:background="@color/colorPrimaryDark"
+            android:padding="0dp"
+            android:id="@+id/toolbar"
+            android:layout_height="@dimen/default_toolbar_height">
+
+        <LinearLayout android:layout_width="match_parent"
+                      android:orientation="horizontal"
+                      android:layout_height="match_parent">
+            <com.dev.widgets.MyEditText
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    app:strokeColor="@color/color_title_text"
+                    android:id="@+id/etQuery"
+                    android:inputType="textAutoComplete"
+                    android:imeOptions="actionDone"
+                    app:cornerRadius="@dimen/default_margin_3"
+                    android:hint="@string/hint"
+                    android:textColorHint="@color/color_subtext"
+                    android:background="@color/colorPrimary"
+                    android:textColor="@color/color_title_text"
+                    android:paddingStart="@dimen/default_margin_2"
+                    android:layout_marginEnd="@dimen/default_margin"
+                    android:paddingEnd="@dimen/default_margin_2"
+                    android:layout_marginTop="@dimen/default_margin"
+                    android:layout_marginBottom="@dimen/default_margin"
+                    android:layout_marginStart="@dimen/default_margin_2"
+                    android:layout_height="match_parent"/>
+
+            <com.dev.widgets.MyImageView
+                    android:layout_width="wrap_content"
+                    app:srcCompat="@drawable/ic_action_bar_voice_search"
+                    android:layout_gravity="center"
+                    android:id="@+id/ivVoiceSearch"
+                    android:padding="@dimen/default_margin"
+                    android:layout_height="match_parent"/>
+        </LinearLayout>
+    </androidx.appcompat.widget.Toolbar>
+    <com.dev.widgets.MyRecyclerView
+            android:layout_width="match_parent"
+            android:id="@+id/rvImageList"
+            android:layout_below="@+id/toolbar"
+            android:layout_above="@+id/loadMoreLoader"
+            android:layout_alignWithParentIfMissing="true"
+            android:layout_height="match_parent"/>
+    <ProgressBar android:layout_width="wrap_content"
+                 android:layout_height="wrap_content"
+                 android:id="@+id/loader"
+                 android:layout_centerHorizontal="true"
+                 android:layout_below="@+id/toolbar"
+                 android:visibility="gone"
+                 android:layout_marginTop="@dimen/default_margin_2"
+    />
+    <ProgressBar android:layout_width="wrap_content"
+                 android:layout_height="wrap_content"
+                 android:layout_marginTop="@dimen/default_margin"
+                 android:id="@+id/loadMoreLoader"
+                 android:visibility="gone"
+                 android:layout_alignParentBottom="true"
+                 android:layout_centerHorizontal="true"
+                 android:layout_marginBottom="@dimen/default_margin"
+    />
+    <com.dev.widgets.MyImageView
+            android:layout_width="wrap_content"
+            android:src="@drawable/search_ends_here"
+            android:id="@+id/ivPlaceholder"
+            android:layout_centerInParent="true"
+            android:layout_height="wrap_content"/>
+</com.dev.widgets.MyRelativeLayout>
