@@ -1,5 +1,6 @@
 package com.dev.data.domain
 
+import android.util.Log
 import com.github.kittinunf.fuel.Fuel
 import com.github.kittinunf.fuel.core.FuelManager
 import com.github.kittinunf.fuel.core.interceptors.LogRequestAsCurlInterceptor
@@ -32,6 +33,7 @@ object ApiHelper {
                 return Triple(true, it, null)
             },
             failure = {
+                Log.d("Fuel Error:", it.response.toString())
                 return Triple(false, null, Error(it.message, it.cause))
             }
         )
