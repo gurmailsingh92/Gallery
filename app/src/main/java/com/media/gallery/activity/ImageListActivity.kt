@@ -24,12 +24,14 @@ import com.media.gallery.EndlessRecyclerOnScrollListenerGrid
 import com.media.gallery.R
 import com.media.gallery.Utils
 import com.media.gallery.controllers.ImageAdapter
+import com.media.gallery.fragment.ImageDialogFragment
+import com.media.gallery.interfaces.ImageClickListener
 import com.media.gallery.viewmodel.ImageViewModel
 import kotlinx.android.synthetic.main.activity_image_list.*
 import java.util.*
 
 
-class ImageListActivity : BaseActivity() {
+class ImageListActivity : BaseActivity(), ImageClickListener {
 
     private lateinit var viewModel: ImageViewModel
 
@@ -225,7 +227,7 @@ class ImageListActivity : BaseActivity() {
         isLastItemFound = false
         isApiRunning = false
         endlessScrollListener?.reset()
-        adapter = ImageAdapter()
+        adapter = ImageAdapter(this)
         rvImageList.adapter = adapter
 //        adapter.submitList(imageList)
     }
@@ -235,7 +237,7 @@ class ImageListActivity : BaseActivity() {
     }
 
     private fun setController() {
-        adapter = ImageAdapter()
+        adapter = ImageAdapter(this)
         layoutManager = GridLayoutManager(this, gridValue)
         rvImageList.adapter = adapter
         rvImageList.layoutManager = layoutManager
@@ -274,5 +276,10 @@ class ImageListActivity : BaseActivity() {
         (rvImageList.layoutManager as GridLayoutManager).spanCount = gridValue
         adapter.submitList(imageList)
     }
+
+    override fun onImageClick(imageUrl: String, id: String) {
+//        ImageDialogFragment.newInstance(imageUrl).show(supportFragmentManager, "image_dialog")
+    }
+
 
 }

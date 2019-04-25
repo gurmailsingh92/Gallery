@@ -10,19 +10,22 @@ import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.dev.data.domain.entity.ImageModelEntity
 import com.media.gallery.R
+import com.media.gallery.fragment.ImageDialogFragment
+import com.media.gallery.interfaces.ImageClickListener
 import kotlinx.android.synthetic.main.item_image.view.*
 
-class ImageAdapter : ListAdapter<ImageModelEntity, ImageAdapter.ImageViewHolder>(object :
-    DiffUtil.ItemCallback<ImageModelEntity>() {
-    override fun areItemsTheSame(oldItem: ImageModelEntity, newItem: ImageModelEntity): Boolean {
-        return oldItem.id.equals(newItem.id, true)
-    }
+class ImageAdapter(private val callbacks: ImageClickListener) :
+    ListAdapter<ImageModelEntity, ImageAdapter.ImageViewHolder>(object :
+        DiffUtil.ItemCallback<ImageModelEntity>() {
+        override fun areItemsTheSame(oldItem: ImageModelEntity, newItem: ImageModelEntity): Boolean {
+            return oldItem.id.equals(newItem.id, true)
+        }
 
-    override fun areContentsTheSame(oldItem: ImageModelEntity, newItem: ImageModelEntity): Boolean {
-        return oldItem == newItem
-    }
+        override fun areContentsTheSame(oldItem: ImageModelEntity, newItem: ImageModelEntity): Boolean {
+            return oldItem == newItem
+        }
 
-}) {
+    }) {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ImageViewHolder {
         return ImageViewHolder(LayoutInflater.from(parent.context).inflate(R.layout.item_image, parent, false))
     }
@@ -30,6 +33,9 @@ class ImageAdapter : ListAdapter<ImageModelEntity, ImageAdapter.ImageViewHolder>
 
     override fun onBindViewHolder(holder: ImageViewHolder, position: Int) {
         holder.bind(getItem(position))
+        holder.itemView.setOnClickListener {
+            callbacks.onImageClick(getItem(position).imageUrl, getItem(position).id)
+        }
     }
 
 
